@@ -4,6 +4,8 @@ import lombok.*;
 import umc.spring.domain.common.BaseEntity;
 
 import javax.persistence.*;
+import java.util.*;
+import umc.spring.domain.mapping.*;
 
 @Entity
 @Getter
@@ -21,4 +23,8 @@ public class Terms extends BaseEntity {
     private String body;
 
     private Boolean optional;
+
+    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
+
 }
