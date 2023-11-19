@@ -2,6 +2,7 @@ package umc.spring.domain.mapping;
 
 import lombok.*;
 import umc.spring.domain.common.BaseEntity;
+import umc.spring.domain.*;
 
 import javax.persistence.*;
 
@@ -16,5 +17,12 @@ public class MemberAgree extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "terms_id")
+    private Terms terms;
 
 }

@@ -22,4 +22,9 @@ public class Mission extends BaseEntity {
     private LocalDate deadline;
 
     private String missionSpec;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "store_id")
+    private Store store;
+
 }
